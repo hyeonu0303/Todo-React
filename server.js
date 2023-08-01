@@ -29,9 +29,10 @@ app.get('/product',(req,res)=>{
 })
 
 app.post('/todo', (req,res)=>{
-  db.collection('todo').insertOne({_id:1, todoTitle: req.body},(error, result)=>{
+  db.collection('todo').insertOne({_id:1, todoTitle: req.body.title},(error, result)=>{
     if(error) console.log(error);
-    console.log('입력성공')
+    console.log(result);
+    console.log('todo제목 db저장완료')
   })
 })
 

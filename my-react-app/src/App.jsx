@@ -19,11 +19,9 @@ function App() {
       <div className='todoBox d-flex'>
         <input onChange={onChange} value={inputText} className='todoInput' type="text" placeholder='할일 입력'/>
         <button className='btn btn-primary' onClick={()=>{
-          addTodo;
-
+          addTodo();
           axios.post('/todo', {
-            //input에 입력한 데이터
-            todoTitle: todo
+            title:inputText
         })
         .then(function (response) {
               console.log(response)  
@@ -44,8 +42,6 @@ function App() {
                   let copy = [...todo];
                   copy.splice(i,1);
                   setTodo(copy);
-                  
-                  
                 }}>삭제</button></li>
               </ul>              
             </>
