@@ -23,16 +23,18 @@ MongoClient.connect(process.env.MONGO_URL, function(error, client){
   });
 })
 
-app.get('/product',(req,res)=>{
-  res.json({name : 'black shoes'})
-  console.log(req)
-})
-
 app.post('/todo', (req,res)=>{
-  db.collection('todo').insertOne({_id:1, todoTitle: req.body.title},(error, result)=>{
-    if(error) console.log(error);
-    console.log(result);
-    console.log('todo제목 db저장완료')
+  db.collection('todocount').findOne({name:'게시물갯수'},(error,result)=>{
+    if(error) console.log('todocount collection못찾음'+error)
+    console.log(result)
+    let total = result.total;
+    db.collection('todo').insertOne({_id:(total+1), todoTitle: req.body.title},(error, result)=>{
+      if(error) console.log('제목저장실패'+error);
+      console.log('todo제목 db저장완료')
+      db.collection('todocount').updateOne({name:'게시물갯수'},{$inc : {total:1}},(error,result)=>{
+        if(error) console.log('수정오류'+error)
+      })
+    })
   })
 })
 
