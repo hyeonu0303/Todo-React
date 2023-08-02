@@ -12,9 +12,15 @@
   margin-top:30px;
 }
 
-.login{
+.nav{
   position:absolute;
   right:0;
   top:0;
+  padding:10px;
+}
+
+.nav>a{
+  display:block;
+  margin-right:10px;
 }
 

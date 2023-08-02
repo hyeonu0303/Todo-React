@@ -14,15 +14,15 @@ function App() {
     setTodo([...todo, inputText]);
     setInputText('');
   };
-  /**
-   * @todo 마이페이지,회원가입 링크 만들기
-  */  
 
   return (
     <>
-      <div className='login'>
-        <Link to={'/auth'}>로그인</Link>
-      </div>
+      <div className='nav'>
+  <Link to={'/mypage'} className="mr-3">마이페이지</Link>
+  <Link to={'/auth'} className="mr-3">로그인</Link>
+  <Link to={'/signup'}>회원가입</Link>
+</div>
+
       <div className='container'>
         <div className='todoBox d-flex'>
           <input

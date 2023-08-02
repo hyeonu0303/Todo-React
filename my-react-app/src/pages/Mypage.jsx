@@ -13,8 +13,7 @@ const Mypage = () => {
 
   return (
     <div>
-      <h2>{userData.id}</h2>
-      <h2>{userData.pw}</h2>
+      <h2>{userData.id}님의 마이페이지</h2>
     </div>
   );
 };

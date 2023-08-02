@@ -4,9 +4,7 @@ import Form from 'react-bootstrap/Form';
  * @todo passport라이브러리 미들웨어 구축
  */
 function Login() {
-
   
-
   return (
     <div className='container mt-5'>
       <h2>회원가입</h2><br/>
@@ -26,6 +24,7 @@ function Login() {
         회원가입
       </Button>
     </Form>
+  
     </div>
   );
 }
