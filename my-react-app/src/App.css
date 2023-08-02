@@ -11,3 +11,10 @@
 .resultList{
   margin-top:30px;
 }
+
+.login{
+  position:absolute;
+  right:0;
+  top:0;
+}
+
